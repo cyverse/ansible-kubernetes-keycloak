@@ -1,0 +1,16 @@
+all:
+  hosts:
+    host1:
+      ansible_host: host1.example.com
+      ansible_user: root
+    host2:
+      ansible_host: db.example.com
+      ansible_user: root
+  children:
+    # note: deploy host is the host used to execute the 'kubectl apply'
+    deployhost:
+      hosts:
+        host1:
+    postgresql_host:
+      hosts:
+        host2:

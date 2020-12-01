@@ -1,0 +1,13 @@
+---
+- name: FILE; create the directory to save the kubernetes yaml
+  file:
+    path: /opt/keycloak
+    state: directory
+
+- name: TEMPLATE; copy the keycloak kubernetes yaml
+  template:
+    src: keycloak.yml.j2
+    dest: /opt/keycloak/keycloak.yml
+
+- name: SHELL; kubectl apply -f keycloak.yml
+  shell: kubectl apply -f /opt/keycloak/keycloak.yml

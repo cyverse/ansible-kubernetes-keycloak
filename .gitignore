@@ -1,0 +1,3 @@
+*.ignore
+group_vars/all
+hosts.yml
